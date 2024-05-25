@@ -1,49 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Speech Quiz - Amy Bruyninckx</title>
+
+  <link rel="stylesheet" href="/styles/style.css">
+
 </head>
+
 <body>
-  <h1>Speech Quiz - Amy Bruyninckx</h1>
 
-  <div id="quiz">
-    <div class="question" id="question1">
-      <p>Question 1: What is a funny photography related multiple-choice question?</p>
-      <button class="speakBtn">Read Question</button>
-      <ul>
-        <li>A. Why did the photographer go to jail? Because he shot someone!</li>
-        <li>B. Why was the picture sent to jail? It was framed!</li>
-        <li>C. What did the lens say to the camera? You make me focus!</li>
-      </ul>
-      <button class="answerBtn">Answer</button>
-      <p class="result"></p>
+  <div class="navbar">
+    <a id="btn" href="index.html">Logo</a>
+
+    <div class="navmenu">
+      <a href="photography.html" id="photographyLink">PHOTOGRAPHY</a>
+      <a href="design.html" id="designLink">DESIGN</a>
+      <a href="code_index.html" id="codeLink">CODE</a>
     </div>
 
-    <div class="question" id="question2">
-      <p>Question 2: What is the national animal of Scotland?</p>
-      <button class="speakBtn">Read Question</button>
-      <button class="answerBtn">Answer</button>
-      <p class="result"></p>
-    </div>
-
-    <div class="question" id="question3">
-      <p>Question 3: What do you call a female elephant? (multiple choice)</p>
-      <button class="speakBtn">Read Question</button>
-      <ul>
-        <li>A. Cow</li>
-        <li>B. Doe</li>
-        <li>C. Mare</li>
-      </ul>
-      <button class="answerBtn">Answer</button>
-      <p class="result"></p>
-    </div>
+    <a id="btn" href="#">@email</a>
   </div>
 
-  <p id="score">Score: 0/3</p>
-  <p id="finalMessage"></p>
+  <div class="content">
+
+    <a href="/code_index.html">←</a>
+
+    <h1>Speech Quiz - Amy Bruyninckx</h1>
+
+    <div id="quiz">
+      <div class="question" id="question1">
+        <p>Question 1: What is a funny photography related multiple-choice question?</p>
+        <button class="speakBtn">Read Question</button>
+        <ul>
+          <li>A. Why did the photographer go to jail? Because he shot someone!</li>
+          <li>B. Why was the picture sent to jail? It was framed!</li>
+          <li>C. What did the lens say to the camera? You make me focus!</li>
+        </ul>
+        <button class="answerBtn">Answer</button>
+        <p class="result"></p>
+      </div>
+
+      <div class="question" id="question2">
+        <p>Question 2: What is the national animal of Scotland?</p>
+        <button class="speakBtn">Read Question</button>
+        <button class="answerBtn">Answer</button>
+        <p class="result"></p>
+      </div>
+
+      <div class="question" id="question3">
+        <p>Question 3: What do you call a female elephant? (multiple choice)</p>
+        <button class="speakBtn">Read Question</button>
+        <ul>
+          <li>A. Cow</li>
+          <li>B. Doe</li>
+          <li>C. Mare</li>
+        </ul>
+        <button class="answerBtn">Answer</button>
+        <p class="result"></p>
+      </div>
+    </div>
+
+    <p id="score">Score: 0/3</p>
+    <p id="finalMessage"></p>
+  </div>
 
   <script defer src="main.js"></script>
 </body>
+
 </html>

@@ -1,0 +1,70 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #F3EDE7;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    align-items: center; 
+    padding: 30px 18px;
+    background-color: #F3EDE7;
+    width: 100%;
+    z-index: 1000; 
+    position: fixed;
+    justify-content: space-between;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #333;
+    padding: 0 10px;
+    flex-shrink: 0;
+    position: relative; /* Moet voor streep */
+}
+
+.navmenu {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+    padding: 0 20px;
+}
+
+#btn {
+    background-color: #c5cfb8;
+    padding: 10px 20px;
+    border-radius: 16px;
+    text-decoration: none;
+    color: #333;
+}
+
+.navbar a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background-color: #c5cfb8;
+}
+
+.content{
+    position: absolute;
+    padding-top: 150px;
+    margin: 32px;
+    
+}
+
+.content a{
+    text-decoration: none;
+    color: #333;
+    border:#c5cfb8 solid;
+    padding: 50px;
+    border-radius: 32px;
+}
+
+.content h1{
+    margin-top: 100px;
+}
