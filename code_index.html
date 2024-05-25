@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Amy Bruyninckx</title>
+    
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #F3EDE7;
+        }
+
+        .navbar {
+            display: flex;
+            flex-direction: row;
+            align-items: center; 
+            padding: 30px 18px;
+            background-color: #F3EDE7;
+            width: 100%;
+            z-index: 1000; 
+            position: fixed;
+            justify-content: space-between;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #333;
+            padding: 0 10px;
+            flex-shrink: 0;
+            position: relative; /* Necessary for the ::after pseudo-element */
+        }
+
+        .navmenu {
+            display: flex;
+            justify-content: center;
+            flex-grow: 1;
+            padding: 0 20px;
+        }
+
+        #btn {
+            background-color: #c5cfb8;
+            padding: 10px 20px;
+            border-radius: 16px;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .navbar a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background-color: #c5cfb8;
+        }
+    </style>
+</head>
+
+<body>
+    
+<div class="navbar">
+    <a id="btn" href="index.html">Logo</a>
+
+    <div class="navmenu">
+        <a href="photography.html" id="photographyLink">PHOTOGRAPHY</a>
+        <a href="design.html" id="designLink">DESIGN</a>
+        <a href="code_index.html" id="codeLink">CODE</a>  
+    </div>
+
+    <a id="btn" href="#">@email</a>
+</div>
+
+<script>
+    // JavaScript to add the 'active' class to the current link
+    document.addEventListener('DOMContentLoaded', () => {
+        const path = window.location.pathname;
+        if (path.includes('photography.html')) {
+            document.getElementById('photographyLink').classList.add('active');
+        } else if (path.includes('design.html')) {
+            document.getElementById('designLink').classList.add('active');
+        } else if (path.includes('code_index.html')) {
+            document.getElementById('codeLink').classList.add('active');
+        }
+    });
+</script>
+
+</body>
+</html>
