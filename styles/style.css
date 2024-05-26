@@ -50,10 +50,14 @@ body {
     background-color: #c5cfb8;
 }
 
+.welcome{
+    padding: 200px 48px;
+}
+
 .content{
-    position: absolute;
-    padding-top: 150px;
+   
     margin: 32px;
+
     
 }
 
@@ -65,6 +69,10 @@ body {
     border-radius: 32px;
 }
 
-.content h1{
-    margin-top: 100px;
+
+
+.articles{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }

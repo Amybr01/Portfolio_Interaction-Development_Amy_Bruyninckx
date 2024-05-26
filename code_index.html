@@ -1,47 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio - Amy Bruyninckx</title>
 
     <link rel="stylesheet" href="/styles/style.css">
-  
+
 </head>
 
 <body>
-    
-<div class="navbar">
-    <a id="btn" href="index.html">Logo</a>
 
-    <div class="navmenu">
-        <a href="photography.html" id="photographyLink">PHOTOGRAPHY</a>
-        <a href="design.html" id="designLink">DESIGN</a>
-        <a href="code_index.html" id="codeLink">CODE</a>  
+    <div class="navbar">
+        <a id="btn" href="index.html">Logo</a>
+
+        <div class="navmenu">
+            <a href="photography.html" id="photographyLink">PHOTOGRAPHY</a>
+            <a href="design.html" id="designLink">DESIGN</a>
+            <a href="code_index.html" id="codeLink">CODE</a>
+        </div>
+
+        <a id="btn" href="#">@email</a>
     </div>
 
-    <a id="btn" href="#">@email</a>
-</div>
+    <div class="welcome">
+        <p>Welkom op mijn portfolio website. Klik op de onderstaande links om meer te ontdekken over mijn werk:</p>
+    </div>
 
-<div> <p>Welkom op mijn portfolio website. Klik op de onderstaande links om meer te ontdekken over mijn werk:</p></div>
+    <div class="articles">
+        <article class="content">
+            <a href="Challenge 1 - speech/index.html">Speech Quiz</a>
+        </article>
 
-<article class="content">
-    <a href="Challenge 1 - speech/index.html">Speech Quiz</a>
-</article>
+        <article class="content">
+            <a href="Challenge 2 - track your body/index.html">Minigame: track your body</a>
+        </article>
+    </div>
 
-<script>
-    // streepje onder actieve pagina
-    document.addEventListener('DOMContentLoaded', () => {
-        const path = window.location.pathname;
-        if (path.includes('photography.html')) {
-            document.getElementById('photographyLink').classList.add('active');
-        } else if (path.includes('design.html')) {
-            document.getElementById('designLink').classList.add('active');
-        } else if (path.includes('code_index.html')) {
-            document.getElementById('codeLink').classList.add('active');
-        }
-    });
-</script>
+
+    <script>
+        // streepje onder actieve pagina
+        document.addEventListener('DOMContentLoaded', () => {
+            const path = window.location.pathname;
+            if (path.includes('photography.html')) {
+                document.getElementById('photographyLink').classList.add('active');
+            } else if (path.includes('design.html')) {
+                document.getElementById('designLink').classList.add('active');
+            } else if (path.includes('code_index.html')) {
+                document.getElementById('codeLink').classList.add('active');
+            }
+        });
+    </script>
 
 </body>
+
 </html>
