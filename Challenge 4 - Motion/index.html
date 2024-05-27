@@ -12,13 +12,14 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+
             height: 100vh;
             background-color: #F3EDE7;
         }
 
         canvas {
             display: none;
+            height: 600px;
         }
 
         #startScreen,
@@ -37,20 +38,46 @@
             color: #333;
         }
     </style>
+    <link rel="stylesheet" href="/styles/style.css">
+
 </head>
 
 <body>
 
-    <a href="/code_index.html">←</a>
-    <div id="startScreen">
-        <h1>Balloon game 🎈</h1>
-        <button id="startButton">Start</button>
+    <div class="navbar">
+        <div class="left">
+            <a id="btn" href="index.html">Logo</a>
+        </div>
+
+        <div class="center navmenu">
+            <a href="photography.html" id="photographyLink">PHOTOGRAPHY</a>
+            <a href="design.html" id="designLink">DESIGN</a>
+            <a href="code_index.html" id="codeLink">CODE</a>
+        </div>
+
+        <div class="right">
+            <a id="btn" href="#">@email</a>
+        </div>
     </div>
-    <canvas id="gameCanvas"></canvas>
-    <div id="gameOverScreen" style="display: none;">
-        <h1>Oh, you got hit!</h1>
-        <button id="restartButton">Restart</button>
+
+    <div class="content">
+
+        <a id="arrow" href="/code_index.html">←</a>
+        <div id="startScreen">
+            <h1>Balloon game 🎈</h1>
+            <button id="startButton">Start</button>
+        </div>
+        <canvas id="gameCanvas"></canvas>
+        <div id="gameOverScreen" style="display: none;">
+            <h1>Oh, you got hit!</h1>
+            <button id="restartButton">Restart</button>
+        </div>
+
     </div>
+
+    <footer>
+        <p>@Amy_Bruyninckx</p>
+    </footer>
     <script src="game.js"></script>
 </body>
 

@@ -13,31 +13,35 @@
 <body>
 
   <div class="navbar">
-    <a id="btn" href="index.html">Logo</a>
-
-    <div class="navmenu">
-      <a href="photography.html" id="photographyLink">PHOTOGRAPHY</a>
-      <a href="design.html" id="designLink">DESIGN</a>
-      <a href="code_index.html" id="codeLink">CODE</a>
+    <div class="left">
+        <a id="btn" href="index.html">Logo</a>
+    </div>
+    
+    <div class="center navmenu">
+        <a href="photography.html" id="photographyLink">PHOTOGRAPHY</a>
+        <a href="design.html" id="designLink">DESIGN</a>
+        <a href="code_index.html" id="codeLink">CODE</a>
     </div>
 
-    <a id="btn" href="#">@email</a>
-  </div>
+    <div class="right">
+        <a id="btn" href="#">@email</a>
+    </div>
+</div>
 
   <div class="content">
 
-    <a href="/code_index.html">←</a>
+    <a id="arrow" href="/code_index.html">←</a>
 
     <h1>Speech Quiz - Amy Bruyninckx</h1>
 
     <div id="quiz">
       <div class="question" id="question1">
-        <p>Question 1: What is a funny photography related multiple-choice question?</p>
+        <p>Question 1: Why was the picture sent to jail?</p>
         <button class="speakBtn">Read Question</button>
         <ul>
-          <li>A. Why did the photographer go to jail? Because he shot someone!</li>
-          <li>B. Why was the picture sent to jail? It was framed!</li>
-          <li>C. What did the lens say to the camera? You make me focus!</li>
+          <li>A. Because it was part of a shady deal</li>
+          <li>B. It was framed!</li>
+          <li>C. It couldn't develop an alibi.</li>
         </ul>
         <button class="answerBtn">Answer</button>
         <p class="result"></p>
@@ -66,6 +70,10 @@
     <p id="score">Score: 0/3</p>
     <p id="finalMessage"></p>
   </div>
+
+  <footer>
+    <p>@Amy_Bruyninckx</p>
+</footer>
 
   <script defer src="main.js"></script>
 </body>

@@ -5,7 +5,7 @@ recognition.lang = 'en-US';
 
 const questions = [
   {
-    question: "What is a funny photography related multiple-choice question? A. Why did the photographer go to jail? Because he shot someone! B. Why was the picture sent to jail? It was framed! C. What did the lens say to the camera? You make me focus!",
+    question: "Why was the picture sent to jail? A. Because it was part of a shady deal B. It was framed! It was framed! C. It couldn't develop an alibi. ",
     answer: "B"
   },
   {

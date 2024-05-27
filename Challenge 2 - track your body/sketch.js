@@ -118,11 +118,11 @@ class Ball {
 
     display() {
         if (this.color === 'green') {
-            fill(0, 255, 0); // Green
+            fill(0, 255, 0); // Groen
         } else if (this.color === 'yellow') {
-            fill(255, 255, 0); // Yellow
+            fill(255, 255, 0); // geel
         } else if (this.color === 'red') {
-            fill(255, 0, 0); // Red
+            fill(255, 0, 0); //rood
         }
         noStroke();
         ellipse(this.x, this.y, this.r * 2);

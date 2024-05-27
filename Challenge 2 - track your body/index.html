@@ -11,9 +11,7 @@
     <script src="https://unpkg.com/ml5@0.10.0/dist/ml5.min.js"></script>
     <script src="sketch.js"></script>
 
-    
-
-
+    <link rel="stylesheet" href="/styles/style.css">
     <style>
         body {
             margin: 0;
@@ -25,8 +23,6 @@
             background: #F3EDE7;
             flex-direction: column;
         }
-
-
 
         #title {
             margin-bottom: 10px;
@@ -58,42 +54,56 @@
             padding: 10px 20px;
             font-size: 16px;
             cursor: pointer;
-
             background-color: #c5cfb8;
             padding: 10px 20px;
             border-radius: 16px;
             text-decoration: none;
-
         }
 
+      
+
+        #arrow:hover {
+            color: #555;
+        }
     </style>
+
+    <link rel="stylesheet" href="/styles/style.css">
 
 </head>
 
 <body>
 
-    <!--<div class="navbar">
-        <a id="btn" href="index.html">Logo</a>
-    
-        <div class="navmenu">
-          <a href="photography.html" id="photographyLink">PHOTOGRAPHY</a>
-          <a href="design.html" id="designLink">DESIGN</a>
-          <a href="code_index.html" id="codeLink">CODE</a>
+    <div class="navbar">
+        <div class="left">
+            <a id="btn" href="index.html">Logo</a>
         </div>
-    
-        <a id="btn" href="#">@email</a>
-      </div>-->
 
-      <a href="/code_index.html">←</a>
+        <div class="center navmenu">
+            <a href="photography.html" id="photographyLink">PHOTOGRAPHY</a>
+            <a href="design.html" id="designLink">DESIGN</a>
+            <a href="code_index.html" id="codeLink">CODE</a>
+        </div>
 
-    <h1 id="title">Color Ninja</h1>
-    <div id="description">
-        Raak de groene en gele ballen zeker aan, zo kan je op veel punten staan. Maar pas op voor de rode, anders sta je
-        opgeschreven ten dode...
+        <div class="right">
+            <a id="btn" href="#">@email</a>
+        </div>
     </div>
-    <button id="startButton">Start Game</button>
 
+    <div class="content">
 
+        <a id="arrow" href="/code_index.html">←</a>
+
+        <h1 id="title">Color Ninja</h1>
+        <div id="description">
+            Raak de groene en gele ballen zeker aan, zo kan je op veel punten staan. Maar pas op voor de rode, anders
+            sta je
+            opgeschreven ten dode...
+        </div>
+        <button id="startButton">Start Game</button>
+
+      </div>
+        
+    
 </body>
 
 </html>
