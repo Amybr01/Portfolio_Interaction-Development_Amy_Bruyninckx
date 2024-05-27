@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balloon Game</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #F3EDE7;
+        }
+
+        canvas {
+            display: none;
+        }
+
+        #startScreen,
+        #gameOverScreen {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        button {
+            background-color: #c5cfb8;
+            padding: 10px 20px;
+            border-radius: 16px;
+            text-decoration: none;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+
+    <a href="/code_index.html">←</a>
+    <div id="startScreen">
+        <h1>Balloon game 🎈</h1>
+        <button id="startButton">Start</button>
+    </div>
+    <canvas id="gameCanvas"></canvas>
+    <div id="gameOverScreen" style="display: none;">
+        <h1>Oh, you got hit!</h1>
+        <button id="restartButton">Restart</button>
+    </div>
+    <script src="game.js"></script>
+</body>
+
+</html>
