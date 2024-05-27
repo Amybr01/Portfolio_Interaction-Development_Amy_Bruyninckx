@@ -1,90 +1,138 @@
 let video;
-let poseNet;
-let poses = [];
-let objects = [];
+let handpose;
+let predictions = [];
+let balls = [];
+let gameStarted = false;
+let modelReadyFlag = false;
+let score = 0;
+let spawnInterval = 60; 
+
+let frameCountSinceLastSpawn = 0;
 
 function setup() {
-  createCanvas(640, 480);
-  video = createCapture(VIDEO);
-  video.size(width, height);
+    createCanvas(640, 480);
+    video = createCapture(VIDEO);
+    video.size(width, height);
+    video.hide();
 
-  poseNet = ml5.poseNet(video, modelReady);
-  poseNet.on('pose', function(results) {
-    poses = results;
-  });
-  video.hide();
+    video.elt.addEventListener('loadeddata', () => {
+    });
 
-  for (let i = 0; i < 5; i++) {
-    objects.push(new GameObject(random(width), random(height), 50, 50));
-  }
+    handpose = ml5.handpose(video, { detectionConfidence: 0.8 }, () => { 
+        modelReadyFlag = true;
+    });
+
+    handpose.on('predict', results => {
+        predictions = results;
+    });
+
+    let startButton = select('#startButton');
+    startButton.mousePressed(startGame);
 }
 
-function modelReady() {
-  console.log('Model Loaded');
+function startGame() {
+    let startButton = select('#startButton');
+    startButton.hide();
+
+    gameStarted = true;
+    score = 0;
+    console.log('Game Started');
 }
 
 function draw() {
-  image(video, 0, 0, width, height);
+    if (!gameStarted || !modelReadyFlag) {
+        return;
+    }
 
-  for (let obj of objects) {
-    obj.display();
-  }
+    background(220);
 
-  drawKeypoints();
-  drawSkeleton();
-  checkInteractions();
+    image(video, 0, 0, width, height);
+
+    drawKeypoints();
+    spawnNewBalls();
+
+    for (let i = balls.length - 1; i >= 0; i--) {
+        let ball = balls[i];
+        ball.update();
+        ball.display();
+
+        if (ball.y > height + ball.r) {
+            balls.splice(i, 1);
+        }
+    }
+
+    fill(0);
+    textSize(24);
+    text(`Score: ${score}`, 10, height - 30);
 }
 
 function drawKeypoints() {
-  for (let i = 0; i < poses.length; i++) {
-    let pose = poses[i].pose;
-    for (let j = 0; j < pose.keypoints.length; j++) {
-      let keypoint = pose.keypoints[j];
-      if (keypoint.score > 0.2) {
+    if (predictions.length === 0) {
+        console.log('No hand detected');
+        return;
+    }
+
+    for (let i = 0; i < predictions.length; i++) {
+        let prediction = predictions[i];
+        let indexFinger = prediction.landmarks[8]; // wijs vinger punt
+
         fill(255, 0, 0);
         noStroke();
-        ellipse(keypoint.position.x, keypoint.position.y, 10, 10);
-      }
-    }
-  }
-}
+        ellipse(indexFinger[0], indexFinger[1], 10, 10);
 
-function drawSkeleton() {
-  for (let i = 0; i < poses.length; i++) {
-    let skeleton = poses[i].skeleton;
-    for (let j = 0; j < skeleton.length; j++) {
-      let partA = skeleton[j][0];
-      let partB = skeleton[j][1];
-      stroke(255, 0, 0);
-      line(partA.position.x, partA.position.y, partB.position.x, partB.position.y);
-    }
-  }
-}
-
-function checkInteractions() {
-  if (poses.length > 0) {
-    let hands = [poses[0].pose.rightWrist, poses[0].pose.leftWrist];
-    for (let hand of hands) {
-      for (let obj of objects) {
-        if (dist(hand.x, hand.y, obj.x + obj.w / 2, obj.y + obj.h / 2) < 50) {
-          obj.x += random(-5, 5);
-          obj.y += random(-5, 5);
+        for (let j = balls.length - 1; j >= 0; j--) {
+            let ball = balls[j];
+            if (ball.checkCollision(indexFinger)) {
+                if (ball.color === 'red') {
+                    score--;
+                } else {
+                    score++;
+                }
+                balls.splice(j, 1);
+            }
         }
-      }
     }
-  }
 }
 
-class GameObject {
-  constructor(x, y, w, h) {
-    this.x = x;
-    this.y = y;
-    this.w = w;
-    this.h = h;
-  }
+function spawnNewBalls() {
+    frameCountSinceLastSpawn++;
+    if (frameCountSinceLastSpawn >= spawnInterval) {
+        let color = random(['green', 'yellow', 'red']);
+        balls.push(new Ball(random(width), random(-height, 0), random(15, 30), color));
+        frameCountSinceLastSpawn = 0;
+    }
+}
 
-  display() {
-    fill(0, 255, 0);
-    rect(this.x, this.y, this.w, this.h);
-  }
+class Ball {
+    constructor(x, y, r, color) {
+        this.x = x;
+        this.y = y;
+        this.r = r;
+        this.color = color;
+        this.ySpeed = random(1, 3);
+    }
+
+    update() {
+        this.y += this.ySpeed;
+    }
+
+    display() {
+        if (this.color === 'green') {
+            fill(0, 255, 0); // Green
+        } else if (this.color === 'yellow') {
+            fill(255, 255, 0); // Yellow
+        } else if (this.color === 'red') {
+            fill(255, 0, 0); // Red
+        }
+        noStroke();
+        ellipse(this.x, this.y, this.r * 2);
+    }
+
+    checkCollision(finger) {
+        if (finger && finger[0] !== undefined && finger[1] !== undefined) {
+            let d = dist(this.x, this.y, finger[0], finger[1]);
+            return d < this.r + 10;
+        }
+        return false;
+    }
 }
