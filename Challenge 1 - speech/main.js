@@ -5,7 +5,7 @@ recognition.lang = 'en-US';
 
 const questions = [
   {
-    question: "Why was the picture sent to jail? A. Because it was part of a shady deal B. It was framed! It was framed! C. It couldn't develop an alibi. ",
+    question: "Why was the picture sent to jail? A. Because it was part of a shady deal B. It was framed! C. It couldn't develop an alibi. ",
     answer: "B"
   },
   {

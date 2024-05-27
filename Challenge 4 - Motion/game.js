@@ -59,7 +59,7 @@ function updateStones() {
 
     stones = stones.filter(stone => stone.y < canvas.height);
 
-    if (Math.random() < 0.02) {  // Verlaag de kans op nieuwe stenen
+    if (Math.random() < 0.02) {  
         stones.push({
             x: Math.random() * canvas.width,
             y: 0,
@@ -119,15 +119,15 @@ function requestDeviceOrientationPermission() {
 function handleOrientation(event) {
     if (!gameRunning) return;
 
-    let gamma = event.gamma; // left-to-right tilt in degrees, where right is positive
-    let beta = event.beta;   // front-to-back tilt in degrees, where front is positive
+    let gamma = event.gamma; 
+    let beta = event.beta;   
 
     if (gamma !== null && beta !== null) {
-        // Update the balloon position based on the device orientation
+        // update de positie van de ballon
         balloon.x += gamma * 0.5;
         balloon.y += beta * 0.5;
 
-        // Keep the balloon within the bounds of the canvas
+        // zorg dat de ballon niet uit het canvas kan
         if (balloon.x < balloon.radius) balloon.x = balloon.radius;
         if (balloon.x > canvas.width - balloon.radius) balloon.x = canvas.width - balloon.radius;
         if (balloon.y < balloon.radius) balloon.y = balloon.radius;

@@ -9,14 +9,14 @@ body {
 }
 
 .main-content {
-    flex: 1; /* This makes the main content area take up the remaining space */
+    flex: 1;
 }
 
 .navbar {
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 15px 10px; /* Reduced padding */
+    padding: 15px 10px; 
     background-color: #F3EDE7;
     width: 100%;
     z-index: 1000;
@@ -26,16 +26,16 @@ body {
 .navbar a {
     text-decoration: none;
     color: #333;
-    padding: 0 5px; /* Reduced padding */
+    padding: 0 5px;
     flex-shrink: 0;
-    position: relative; /* For underline */
+    position: relative; 
 }
 
 .navmenu {
     display: flex;
     justify-content: center;
     flex-grow: 1;
-    padding: 0 10px; /* Reduced padding */
+    padding: 0 10px; 
 }
 
 #btn {
@@ -44,8 +44,8 @@ body {
     border-radius: 16px;
     text-decoration: none;
     color: #333;
-    margin: 0 5px 0 0; /* Reduced margin and added margin-right */
-    white-space: nowrap; /* Prevent text wrap */
+    margin: 0 5px 0 0;
+    white-space: nowrap; 
 }
 
 .navbar a.active::after {
@@ -89,7 +89,7 @@ footer {
     background-color: #c5cfb8;
     padding: 20px;
     text-align: center;
-    margin-top: auto; /* Pushes the footer to the bottom */
+    margin-top: auto;
     width: 100%;
     box-sizing: border-box;
    
@@ -117,7 +117,7 @@ footer {
     }
 }
 
-/* Navbar specific adjustments */
+
 .navbar {
     display: flex;
     align-items: center;
@@ -150,14 +150,14 @@ footer {
 
 @media (max-width: 600px) {
     .navbar {
-        flex-direction: row; /* Keep items in a single row */
-        flex-wrap: nowrap; /* Prevent wrapping */
+        flex-direction: row;
+        flex-wrap: nowrap; 
     }
 
     .navmenu {
         justify-content: center;
-        width: auto; /* Adjust width */
-        padding: 0 5px; /* Reduce padding */
+        width: auto; 
+        padding: 0 5px; 
     }
 
     #btn {
