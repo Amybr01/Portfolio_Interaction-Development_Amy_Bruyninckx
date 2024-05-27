@@ -7,15 +7,15 @@
   <script src="https://unpkg.com/ml5@latest/dist/ml5.min.js"></script>
   <link rel="stylesheet" href="normalize.css">
   <link rel="stylesheet" href="style.css">
-  <title>Body Part Detection</title>
+  <title>Body part recognition app</title>
   <style>
     body {
-      background-color: #1a1919;
+      background-color: #F3EDE7;
       font-family: monospace;
     }
 
     .container h1 {
-      color: #fff;
+      color: black;
       text-align: center;
     }
 
@@ -31,6 +31,12 @@
       padding: 10px 20px;
       font-size: 16px;
       cursor: pointer;
+
+      background-color: #c5cfb8;
+    padding: 10px 20px;
+    border-radius: 16px;
+    text-decoration: none;
+    color: #333;
     }
 
     #result-container {
@@ -42,8 +48,8 @@
     }
 
     .result-card {
-      background-color: #fff;
-      border-radius: 8px;
+      background-color: #c5cfb8 ;
+      border-radius: 16px;
       padding: 12px;
       max-width: 320px;
       text-align: center;
@@ -61,6 +67,9 @@
   </style>
 </head>
 <body>
+
+    <a href="/code_index.html">←</a>
+
   <div class="container">
     <h1>Take a Photo to Detect Body Parts</h1>
     <div id="camera-container"></div>
